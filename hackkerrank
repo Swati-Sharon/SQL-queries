@@ -59,8 +59,33 @@ WHERE city like "a%" or city like "e%" or city like "i%" or city like "o%" or ci
 FROM STATION
 WHERE city REGEXP '^[AEIOU]';
 
+>SELECT DISTINCT city
+FROM   station
+WHERE  city RLIKE '^[aeiou]'
 
+11. Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+> SELECT DISTINCT city
+FROM station
+WHERE city like "%a" or city like "%e" 
+or city like "%i" or city like "%o" or city like "%u";
 
+>SELECT DISTINCT city
+FROM   station
+WHERE  city RLIKE '[aeiou]$'
+
+12. Query the list of CITY names from STATION that have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+> SELECT DISTINCT CITY
+FROM STATION
+WHERE (city like "a%" or city like "e%" or city like "i%" or city like "o%" or city like "u%") 
+AND (city like "%a" or city like "%e" or city like "%i" or city like "%o" or city like "%u");
+
+SELECT DISTINCT city
+FROM   station
+WHERE  city RLIKE '^[aeiou].*[aeiou]$'
+
+>SELECT DISTINCT city
+FROM   station
+WHERE  city RLIKE '^[aeiouAEIOU].*[aeiouAEIOU]$'
 
 
 
