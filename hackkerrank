@@ -146,6 +146,23 @@ FROM occupations
 GROUP BY occupation
 ORDER BY count(occupation) ASC;
 
+18.Query the average population for all cities in CITY, rounded down to the nearest integer.
+>SELECT ROUND(AVG(population))
+from city 
+
+19.Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+>SELECT city.name
+from city,country
+where city.countrycode=country.code and continent="africa"
+
+20. Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+>SELECT sum(city.population)
+from city,country
+where city.countrycode=country.code and continent="asia"
+
 
 
 
